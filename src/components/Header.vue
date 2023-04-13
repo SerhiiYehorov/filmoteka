@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <h1 class="orange--text font-weight-bold">Header</h1>
+    <h1 class="orange--text font-weight-bold">BeeMoviessss</h1>
   </div>
 </template>
 
