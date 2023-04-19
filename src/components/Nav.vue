@@ -36,12 +36,12 @@ export default {
   display: flex;
   flex-direction: column;
   background-color: orange;
-  display: none;
+  display: none !important;
 }
 
 @media screen and (min-width: 900px) {
   .main {
-    display: block;
+    display: block !important;
   }
 }
 </style>

@@ -64,19 +64,47 @@ export default {
 
 <style scoped>
 .main {
-  width: 70%;
+  padding-bottom: 176px !important;
 }
 .cards {
   padding: 10px;
-  display: flex;
   gap: 20px;
+  display: flex;
   flex-wrap: wrap;
+  min-height: 1040px;
+  justify-content: center;
+  align-items: center;
 }
 
 .card {
   border: 1px solid transparent;
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: 250px;
+  height: 500px;
+}
+
+@media screen and (min-width: 420px) {
+  .main {
+    padding-bottom: 146px !important;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .main {
+    width: calc(100% - 240px);
+    padding-bottom: 116px !important;
+  }
+  .cards {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center;
+    align-items: center; */
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+  .card {
+    width: 290px;
+  }
 }
 </style>

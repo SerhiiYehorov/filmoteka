@@ -1,9 +1,9 @@
 <template>
-  <v-app>
+  <v-app class="app">
     <Header />
     <div class="main">
       <Nav />
-      <!-- <Main /> -->
+      <Main />
       <!-- <ChosenFilm /> -->
     </div>
     <Footer />
@@ -13,7 +13,7 @@
 <script>
 import Header from "./components/Header.vue";
 import Nav from "./components/Nav.vue";
-// import Main from "./components/Main.vue";
+import Main from "./components/Main.vue";
 import Footer from "./components/Footer.vue";
 // import ChosenFilm from "./components/ChosenFilm.vue";
 
@@ -22,7 +22,7 @@ export default {
   components: {
     Header,
     Nav,
-    // Main,
+    Main,
     Footer,
     // ChosenFilm,
   },
@@ -32,6 +32,6 @@ export default {
 <style scoped>
 .main {
   display: flex;
-  height: calc(100vh - 166px);
+  height: 100%;
 }
 </style>

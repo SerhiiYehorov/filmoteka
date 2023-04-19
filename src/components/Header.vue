@@ -38,13 +38,13 @@ export default {
 
 <style scoped>
 .header {
+  max-height: 200px;
   max-width: 100vw;
   background-color: black;
   text-align: center;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 20px;
 }
 
 .list {
