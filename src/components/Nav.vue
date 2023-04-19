@@ -32,10 +32,16 @@ export default {
 
 <style scoped>
 .main {
-  /* margin: auto; */
   height: 100%;
   display: flex;
   flex-direction: column;
   background-color: orange;
+  display: none;
+}
+
+@media screen and (min-width: 900px) {
+  .main {
+    display: block;
+  }
 }
 </style>
