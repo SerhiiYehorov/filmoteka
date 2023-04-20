@@ -7,19 +7,25 @@
         alt=""
       />
     </div>
+
     <div class="main__info">
       <div class="main__info--title"><b>Film Title:</b> Lorem, ipsum.</div>
+
       <div class="main__info--actors">
         <b>Actors in film:</b>
         Lorem ipsum dolor sit amet.
       </div>
+
       <div class="main__info--raiting">
         <b>Imdb raiting:</b>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt,
         itaque!
       </div>
     </div>
-    <v-btn elevation="8" class="orange--text" rounded x-large>Get back</v-btn>
+
+    <div class="button">
+      <v-btn elevation="8" class="orange--text" rounded x-large>Get back</v-btn>
+    </div>
   </div>
 </template>
 
@@ -29,30 +35,55 @@ export default {};
 
 <style scoped>
 .main {
-  padding: 10px;
-  width: 100%;
-  margin: 0;
+  max-height: 100%;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+  gap: 50px;
   background-color: rgb(45, 44, 44);
-  justify-content: center;
-}
-
-.aside {
-  max-height: 500px;
 }
 
 .main__img {
-  width: 600px;
+  max-width: 100%;
 }
 
 .main__info {
-  color: orange;
-  min-width: 70%;
-  max-height: 500px;
-  padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 20px;
+  color: orange;
+  max-width: 90%;
+  max-height: 500px;
+  padding: 20px;
+}
+
+.button {
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 850px) {
+  .main {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+
+  .main__img {
+    width: 400px;
+  }
+  .main__info {
+    width: calc(100% - 400px);
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .main__img {
+    width: 800px;
+  }
+  .main__info {
+    width: calc(100% - 800px);
+  }
 }
 </style>

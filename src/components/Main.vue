@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { getPopularFilm } from "../api/api.js";
+import { getPopularFilm } from "../api/filmsApi.js";
 
 export default {
   name: "Main",
