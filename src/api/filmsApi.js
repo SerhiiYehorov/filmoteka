@@ -21,3 +21,8 @@ export async function getInTheaters() {
     const res = await http.get("InTheaters" + key);
     return res.data.items
 }
+
+export async function getFilm(id) {
+    const res = await http.get(`Title${key}/${id}`);
+    return res.data
+}

@@ -15,7 +15,14 @@
           <b>Actors:</b>
           {{ film.crew }}
         </v-card-text>
-        <v-btn color="orange lighten-2" x-large text> More </v-btn>
+        <v-btn
+          color="orange lighten-2"
+          x-large
+          text
+          @click="$router.push({ name: 'film', params: { id: film.id } })"
+        >
+          More
+        </v-btn>
       </v-card>
     </div>
 

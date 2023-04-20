@@ -24,13 +24,53 @@
     </div>
 
     <div class="button">
-      <v-btn elevation="8" class="orange--text" rounded x-large>Get back</v-btn>
+      <v-btn
+        elevation="8"
+        class="orange--text"
+        rounded
+        x-large
+        @click="$router.go(-1)"
+      >
+        Get back
+      </v-btn>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import { getFilm } from "@/api/filmsApi.js";
+export default {
+  name: "film",
+
+  props: {
+    id: {
+      type: String,
+      required: true,
+      default: "",
+    },
+  },
+
+  data() {
+    return {
+      film: {},
+    };
+  },
+
+  watch: {
+    id: {
+      handler() {
+        this.getFilm();
+      },
+      immediate: true,
+    },
+  },
+
+  methods: {
+    async getFilm() {
+      this.film = await getFilm(this.id);
+    },
+  },
+};
 </script>
 
 <style scoped>
