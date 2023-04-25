@@ -1,25 +1,22 @@
 <template>
   <div class="main">
     <div class="aside">
-      <img
-        class="main__img"
-        src="https://m.media-amazon.com/images/M/MV5BMjQ1NDU1NDMxM15BMl5BanBnXkFtZTgwMDEyMTY3MTI@._V1_Ratio1.2400_AL_.jpg"
-        alt=""
-      />
+      <v-img class="main__img" :src="film.image" alt="poster" />
     </div>
 
     <div class="main__info">
-      <div class="main__info--title"><b>Film Title:</b> Lorem, ipsum.</div>
+      <div class="main__info--title">
+        <b>Film Title:</b> {{ film.fullTitle }}
+      </div>
 
       <div class="main__info--actors">
         <b>Actors in film:</b>
-        Lorem ipsum dolor sit amet.
+        {{ film.stars }}
       </div>
 
       <div class="main__info--raiting">
-        <b>Imdb raiting:</b>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt,
-        itaque!
+        <b>Genre:</b>
+        {{ film.genres }}
       </div>
     </div>
 
@@ -75,17 +72,19 @@ export default {
 
 <style scoped>
 .main {
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   padding: 10px;
   gap: 50px;
   background-color: rgb(45, 44, 44);
 }
 
 .main__img {
-  max-width: 100%;
+  height: 300px;
+  width: 200px;
 }
 
 .main__info {
@@ -106,6 +105,7 @@ export default {
   .main {
     width: 100%;
     flex-direction: row;
+    align-items: flex-start;
     flex-wrap: wrap;
     gap: 0;
   }
@@ -120,6 +120,7 @@ export default {
 
 @media screen and (min-width: 1500px) {
   .main__img {
+    height: 900px;
     width: 800px;
   }
   .main__info {

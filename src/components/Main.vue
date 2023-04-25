@@ -2,7 +2,7 @@
   <v-main class="main">
     <div class="cards">
       <v-card class="card" v-for="(film, id) in paginatedData" :key="id">
-        <v-img height="200px" :src="film.image" />
+        <v-img height="180px" :src="film.image" />
 
         <v-card-title> {{ film.title }} </v-card-title>
 
@@ -33,10 +33,11 @@
 </template>
 
 <script>
-import { getPopularFilm } from "../api/filmsApi.js";
+import { getApiData } from "../api/filmsApi.js";
 
 export default {
   name: "Main",
+  props: ["request"],
   data: () => ({
     show: false,
     films: [],
@@ -44,13 +45,21 @@ export default {
     page: 1,
   }),
 
-  created() {
-    this.getPopularFilm();
+  watch: {
+    request: {
+      handler() {
+        console.log(this.request);
+        if (this.request) {
+          this.getData();
+        }
+      },
+      immediate: true,
+    },
   },
 
   methods: {
-    async getPopularFilm() {
-      this.films = await getPopularFilm();
+    async getData() {
+      this.films = await getApiData(this.request);
     },
   },
 
@@ -88,7 +97,7 @@ export default {
   display: flex;
   flex-direction: column;
   width: 250px;
-  height: 500px;
+  height: 550px;
 }
 
 @media screen and (min-width: 420px) {
@@ -105,13 +114,12 @@ export default {
   .cards {
     display: flex;
     flex-direction: row;
-    /* justify-content: center;
-    align-items: center; */
     justify-content: space-around;
     align-items: flex-start;
   }
   .card {
     width: 290px;
+    height: 500px;
   }
 }
 </style>

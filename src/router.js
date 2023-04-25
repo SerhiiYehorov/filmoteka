@@ -1,13 +1,34 @@
 import VueRouter from 'vue-router';
 
-import Main from "./views/Main.vue";
 import ChosenFilm from "./views/ChosenFilm.vue";
+import MostPopularMovies from "./views/MostPopularMovies.vue";
+import TopMovies from "./views/TopMovies.vue"
+import ComingSoon from "./views/ComingSoon.vue"
+import InTheatres from "./views/InTheatres.vue"
 
 const routes = [
     {
         path: "/",
-        name: "main",
-        component: Main
+        name: "MostPopularMovies",
+        component: MostPopularMovies
+    },
+
+    {
+        path:  '/top-250-movies',
+        name: "TopMovies",
+        component: TopMovies,
+    },
+
+    {
+        path:  '/coming-soon',
+        name: "ComingSoon",
+        component: ComingSoon,
+    },
+    
+    {
+        path:  '/in-theatres',
+        name: "InTheatres",
+        component: InTheatres,
     },
     {
         path:  '/film/:id',
