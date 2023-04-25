@@ -1,13 +1,12 @@
 <template>
   <div class="main">
-    <div class="main__item">
-      <v-list-item
-        v-for="item in items"
-        :key="item.title"
-        link
-        flat
-        @click="$router.push({ name: item.route })"
-      >
+    <router-link
+      class="main__link"
+      v-for="item in items"
+      :key="item.title"
+      :to="{ name: item.route }"
+    >
+      <v-list-item link flat>
         <v-list-item-icon>
           <v-icon>{{ item.icon }}</v-icon>
         </v-list-item-icon>
@@ -16,7 +15,7 @@
           <v-list-item-title>{{ item.title }}</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
-    </div>
+    </router-link>
   </div>
 </template>
 
@@ -51,6 +50,10 @@ export default {
   flex-direction: column;
   background-color: orange;
   display: none !important;
+}
+
+.main__link {
+  text-decoration: none;
 }
 
 @media screen and (min-width: 900px) {
