@@ -17,12 +17,18 @@
         </v-list-item>
       </v-list>
     </v-menu>
+    <div><Search /></div>
   </div>
 </template>
 
 <script>
+import Search from "./Search.vue";
+
 export default {
   name: "Header",
+  components: {
+    Search,
+  },
   data: () => ({
     items: [
       { title: "Most Popular Movies" },
@@ -43,6 +49,7 @@ export default {
   background-color: black;
   text-align: center;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
 }
