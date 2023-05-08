@@ -5,8 +5,24 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({ 
     state: {
-        serch: ''
+        search: '',
     },
+
+    getters: {
+        search(state) {
+            return state.search;
+        }
+    },
+
+    mutations: {
+        setSearch(state, search){
+            return state.search = search;
+        }
+    },
+
+    // actions: {
+    //     getFilm
+    // }
 
 })
 

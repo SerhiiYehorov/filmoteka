@@ -30,6 +30,13 @@ const routes = [
         name: "InTheatres",
         component: InTheatres,
     },
+
+    // {
+    //     path:  '/search-movies',
+    //     name: "SearchMovies",
+    //     component: SearchMovies,
+    // },
+
     {
         path:  '/film/:id',
         name: "film",

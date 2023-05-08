@@ -1,13 +1,27 @@
 <template>
   <div class="input">
     <input class="search" v-model="search" placeholder="Type film name" />
-    <v-btn color="orange" depressed elevation="2" small raised>Search</v-btn>
   </div>
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 export default {
   name: "Search",
+  data: () => ({
+    search: "",
+  }),
+
+  methods: {
+    ...mapMutations(["setSearch"]),
+  },
+  watch: {
+    search: {
+      handler() {
+        this.setSearch(this.search);
+      },
+    },
+  },
 };
 </script>
 

@@ -1,6 +1,7 @@
 <template>
   <v-main class="main">
-    <div class="cards">
+    <p v-if="paginatedData.length === 0">No info!</p>
+    <div class="cards" v-else>
       <v-card class="card" v-for="(film, id) in paginatedData" :key="id">
         <v-img height="180px" :src="film.image" />
 
@@ -34,7 +35,7 @@
 
 <script>
 import { getApiData } from "../api/filmsApi.js";
-
+import { mapGetters } from "vuex";
 export default {
   name: "Main",
   props: ["request"],
@@ -48,7 +49,6 @@ export default {
   watch: {
     request: {
       handler() {
-        console.log(this.request);
         if (this.request) {
           this.getData();
         }
@@ -64,15 +64,32 @@ export default {
   },
 
   computed: {
+    ...mapGetters(["search"]),
     pageCount() {
-      let l = this.films.length;
+      let l = this.filteredData.length;
+      console.log(this.filteredData.length);
       let s = this.size;
+      if (l <= s) {
+        return 1;
+      }
       return Math.floor(l / s);
     },
     paginatedData() {
+      if (this.pageCount === 1) {
+        return this.filteredData;
+      }
       let start = this.page * this.size;
       let end = start + this.size;
-      return this.films.slice(start, end);
+      return this.filteredData.slice(start, end);
+    },
+    filteredData() {
+      if (this.search) {
+        return this.films.filter((film) =>
+          film.title.toLowerCase().includes(this.search.toLowerCase())
+        );
+      } else {
+        return this.films;
+      }
     },
   },
 };
