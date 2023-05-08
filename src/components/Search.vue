@@ -28,7 +28,7 @@ export default {
 <style scoped>
 .search {
   width: 150px;
-  margin: 20px;
+  margin: 10px;
   padding: 0 10px;
   color: orange;
   background-color: #000;
