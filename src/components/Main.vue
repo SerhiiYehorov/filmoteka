@@ -5,7 +5,7 @@
       <v-card class="card" v-for="(film, id) in paginatedData" :key="id">
         <v-img height="180px" :src="film.image" />
 
-        <v-card-title> {{ film.title }} </v-card-title>
+        <v-card-title class="card__title"> {{ film.title }} </v-card-title>
 
         <v-card-subtitle> {{ film.fullTitle }} </v-card-subtitle>
         <v-card-subtitle>
@@ -67,7 +67,6 @@ export default {
     ...mapGetters(["search"]),
     pageCount() {
       let l = this.filteredData.length;
-      console.log(this.filteredData.length);
       let s = this.size;
       if (l <= s) {
         return 1;
@@ -115,6 +114,10 @@ export default {
   flex-direction: column;
   width: 250px;
   height: 550px;
+}
+
+.card__title {
+  word-break: break-word;
 }
 
 @media screen and (min-width: 420px) {

@@ -12,7 +12,8 @@ export async function getFilm(id) {
     return res.data
 }
 
-// export async function getSearch(search) {
-//     const res = await http.get(`Search${key}/${search}`);
-//     return res.data.items
-// }
+export async function getSearch(search) {
+    const res = await http.get(`Search${key}/${search}`);
+    return res.data.results
+
+}

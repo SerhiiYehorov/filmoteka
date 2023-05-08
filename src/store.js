@@ -20,9 +20,11 @@ const store = new Vuex.Store({
         }
     },
 
-    // actions: {
-    //     getFilm
-    // }
+    actions: {
+        async getSearch() {
+
+        }
+    }
 
 })
 

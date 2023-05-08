@@ -1,13 +1,18 @@
 <template>
-  <div class="input">
-    <input class="search" v-model="search" placeholder="Type film name" />
+  <div class="search">
+    <input class="input" v-model="search" placeholder="Type film name" />
+    <SearchAll />
   </div>
 </template>
 
 <script>
 import { mapMutations } from "vuex";
+import SearchAll from "./SearchAll.vue";
 export default {
   name: "Search",
+  components: {
+    SearchAll,
+  },
   data: () => ({
     search: "",
   }),
@@ -27,6 +32,11 @@ export default {
 
 <style scoped>
 .search {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.input {
   width: 150px;
   margin: 10px;
   padding: 0 10px;
@@ -35,22 +45,22 @@ export default {
   border: 3px solid orange;
   border-radius: 5px;
 }
-.search::placeholder {
+.input::placeholder {
   color: orange;
 }
 
-.search:focus {
+.input:focus {
   outline: none;
 }
 
 @media screen and (min-width: 550px) {
-  .search {
+  .input {
     width: 70vw;
   }
 }
 
 @media screen and (min-width: 900px) {
-  .search {
+  .input {
     width: 40vw;
   }
 }
