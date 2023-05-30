@@ -1,5 +1,5 @@
 # filmoteka
-VUE2, Axios, Vuetify, Vuex, Vue Router
+
 
 ## Project setup
 ```
